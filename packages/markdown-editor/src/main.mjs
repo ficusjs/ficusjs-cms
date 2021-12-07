@@ -1,2 +1,13 @@
 import { initialise, getValue, setValue } from './initialise.mjs'
-export { initialise, getValue, setValue }
+
+export function createEditor (container, options) {
+  initialise(container, options)
+}
+
+export function getEditorValue (container) {
+  return getValue(container)
+}
+
+export function setEditorValue (container, value) {
+  setValue(container, value)
+}

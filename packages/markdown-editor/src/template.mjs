@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Markdown editor</title>
-  <link rel="stylesheet" href="editor.css">
-</head>
-<body>
-<div id="editor" preview></div>
-<template id="mosaic-markdown-editor-template"><div class="mc-markdown-editor__wrapper">
-  <div class="mc-markdown-editor__toolbar">
+export const template = `<div class="fcms-md-editor__wrapper">
+  <div class="fcms-md-editor__toolbar">
     <button type="button" data-command="bold" title="bold">&#66;</button>
     <button type="button" data-command="italic" title="italic">&#73;</button>
     <button type="button" data-command="strikethrough" title="strikethrough">&#7546;</button>
@@ -23,14 +14,8 @@
     <button type="button" data-command="link" title="link">&#128279;</button>
     <button type="button" data-command="image" title="image">&#128247;</button>
   </div>
-  <div class="mc-markdown-editor__container">
-    <textarea class="mc-markdown-editor__textarea" aria-label="Markdown editor"></textarea>
-    <div class="mc-markdown-editor__preview"></div>
+  <div class="fcms-md-editor__container">
+    <textarea class="fcms-md-editor__textarea" aria-label="Markdown editor"></textarea>
+    <div class="fcms-md-editor__preview"></div>
   </div>
-</div></template>
-<script type="module">
-  import { createEditor } from '../../../dist/editor.mjs'
-  createEditor(document.getElementById('editor'))
-</script>
-</body>
-</html>
+</div>`

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown editor</title>
+  <link rel="stylesheet" href="/editor.css">
+</head>
+<body>
+<div id="editor"></div>
+<div id="editor2"></div>
+<script type="module">
+  import { createEditor } from '/main.mjs'
+  createEditor(document.getElementById('editor'), { preview: true })
+  createEditor(document.getElementById('editor2'))
+</script>
+</body>
+</html>

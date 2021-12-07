@@ -1,26 +1,28 @@
 /* eslint-disable no-new */
 import { TextareaEditor } from './editor.mjs'
-import { marked } from '../node_modules/marked/src/marked.js'
+import { marked } from 'marked'
 import { emit } from './emit.mjs'
 import { templateContent } from './template-content.mjs'
+import { elementFromString } from './element-from-string.mjs'
+import { template } from './template.mjs'
 
-export function initialise (container, options, editorOptions) {
-  container.classList.add('mc-markdown-editor')
+export function initialise (container, options = {}) {
+  container.classList.add('fcms-md-editor')
 
-  const element = templateContent(document.getElementById('mosaic-markdown-editor-template')).firstChild
+  const editorWrapper = options.templateId ? templateContent(document.getElementById(options.templateId)).firstChild : elementFromString(template)
   container.textContent = ''
-  container.appendChild(element)
+  container.appendChild(editorWrapper)
 
-  const textarea = element.querySelector('textarea')
-  const toolbar = element.querySelector('.mc-markdown-editor__toolbar')
-  const wrapper = container.querySelector('.mc-markdown-editor__wrapper')
-  const preview = container.querySelector('.mc-markdown-editor__preview')
+  const textarea = editorWrapper.querySelector('textarea')
+  const toolbar = editorWrapper.querySelector('.fcms-md-editor__toolbar')
+  const wrapper = container.querySelector('.fcms-md-editor__wrapper')
+  const preview = container.querySelector('.fcms-md-editor__preview')
 
-  container.hasAttribute('preview') ? wrapper.classList.add('mc-markdown-editor__wrapper--preview') : preview.classList.add('mc-markdown-editor__preview--hide')
+  options.preview ? wrapper.classList.add('fcms-md-editor__wrapper--preview') : preview.classList.add('fcms-md-editor__preview--hide')
 
-  if (editorOptions && editorOptions.value) {
-    textarea.value = editorOptions.value
-    setPreview(container, editorOptions.value)
+  if (options.value) {
+    textarea.value = options.value
+    setPreview(container, options.value)
   }
 
   const editor = new TextareaEditor(textarea)
@@ -76,7 +78,7 @@ export function initialise (container, options, editorOptions) {
           value: textarea.value
         }
       })
-      if (container.hasAttribute('preview')) {
+      if (options.preview) {
         setPreview(container, textarea.value)
       }
     })
@@ -85,21 +87,21 @@ export function initialise (container, options, editorOptions) {
   return editor
 }
 
-function setPreview (inComponent, text) {
+function setPreview (container, text) {
   const markdown = marked(text)
-  const preview = inComponent.querySelector('.mc-markdown-editor__preview')
+  const preview = container.querySelector('.fcms-md-editor__preview')
   preview.innerHTML = markdown
 }
 
-export function getValue (inComponent) {
-  const textarea = inComponent.querySelector('textarea')
+export function getValue (container) {
+  const textarea = container.querySelector('textarea')
   if (textarea) return textarea.value
 }
 
-export function setValue (inComponent, value) {
-  const textarea = inComponent.querySelector('textarea')
+export function setValue (container, value) {
+  const textarea = container.querySelector('textarea')
   if (textarea) {
     textarea.value = value
-    setPreview(inComponent, value)
+    setPreview(container, value)
   }
 }
