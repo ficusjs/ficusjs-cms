@@ -1,0 +1,41 @@
+{
+  "apiBasePath": "http://localhost:3000/api",
+  "collections": [
+    {
+      "name": "post",
+      "label": "Blog posts",
+      "path": "content/posts",
+      "create": true,
+      "fields": [
+        {
+          "type": "string",
+          "name": "title",
+          "label": "Title"
+        },
+        {
+          "type": "string",
+          "name": "template",
+          "label": "Template",
+          "options": [
+            { "value": "default.njk", "text": "Default" },
+            { "value": "post.njk", "text": "Post" }
+          ],
+          "default": "default.njk"
+        },
+        {
+          "type": "string",
+          "format": "hidden",
+          "name": "slug",
+          "label": "Slug",
+          "isSlug": true
+        },
+        {
+          "type": "string",
+          "label": "Post Body",
+          "name": "body",
+          "isBody": true
+        }
+      ]
+    }
+  ]
+}

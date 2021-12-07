@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "587d59d4-661e-43bd-9c1d-921dd64ae0b4",
+		"name": "FicusJS CMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Get content",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/content/posts/test-post-3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"content",
+								"posts",
+								"test-post-3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post content",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"# Test post 4\\n\\nThis is a test post 4\",\n    \"data\": {\n        \"title\": \"Test post 4\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/content/posts/test-post-4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"content",
+								"posts",
+								"test-post-4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put content",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"# Test post 4\\n\\nThis is a test post 4\",\n    \"data\": {\n        \"title\": \"Test post 4\",\n        \"slug\": \"test-post-4\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/content/posts/test-post-4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"content",
+								"posts",
+								"test-post-4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

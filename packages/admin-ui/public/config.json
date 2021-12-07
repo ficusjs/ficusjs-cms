@@ -1,0 +1,28 @@
+{
+  "apiBaseUrl": "http://localhost:3001/",
+  "collections": [
+    {
+      "name": "posts",
+      "label": "Blog posts",
+      "path": "content/posts",
+      "fields": [
+        {
+          "type": "string",
+          "name": "title",
+          "label": "Title"
+        },
+        {
+          "type": "hidden",
+          "name": "slug",
+          "isSlug": true
+        },
+        {
+          "type": "string",
+          "label": "Post Body",
+          "name": "body",
+          "isBody": true
+        }
+      ]
+    }
+  ]
+}

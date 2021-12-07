@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown editor</title>
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+<div id="editor" preview></div>
+<template id="mosaic-markdown-editor-template"><div class="mc-markdown-editor__wrapper">
+  <div class="mc-markdown-editor__toolbar">
+    <button type="button" data-command="bold" data-title="bold"><b>B</b></button>
+    <button type="button" data-command="italic" data-title="italic"><i>I</i></button>
+    <button type="button" data-command="strikethrough" data-title="strikethrough"><strike>S</strike></button>
+    <button type="button" data-command="header1" data-title="heading1"><b>H<sub>1</sub></b></button>
+    <button type="button" data-command="header2" data-title="heading2"><b>H<sub>2</sub></b></button>
+    <button type="button" data-command="header3" data-title="heading3"><b>H<sub>3</sub></b></button>
+    <button type="button" data-command="blockquote" data-title="quote">&#8220; &#8221;</button>
+    <button type="button" data-command="orderedList" data-title="olist">&#35;</button>
+    <button type="button" data-command="unorderedList" data-title="ulist">&#8226;</button>
+    <button type="button" data-command="taskList" data-title="task">&#9745;</button>
+    <button type="button" data-command="code" data-title="code">&lt;/&gt;</button>
+    <button type="button" data-command="link" data-title="link">&#128279;</button>
+    <button type="button" data-command="image" data-title="image">&#128247;</button>
+  </div>
+  <div class="mc-markdown-editor__container">
+    <textarea class="mc-markdown-editor__textarea" aria-label="Markdown editor"></textarea>
+    <div class="mc-markdown-editor__preview"></div>
+  </div>
+</div></template>
+<script type="module">
+  import { initialise } from '../../../dist/editor.mjs'
+  initialise(document.getElementById('editor'))
+</script>
+</body>
+</html>

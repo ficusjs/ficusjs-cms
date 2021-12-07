@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.56.0",
+  "pnpmVersion": "6.7.1",
+  "nodeSupportedVersionRange": ">=12.13.0 <13.0.0 || >=14.15.0 <15.0.0",
+  "projects": [
+     {
+       "packageName": "@ficusjs/cms-admin-ui",
+       "projectFolder": "packages/admin-ui",
+       "reviewCategory": "production"
+     },
+     {
+      "packageName": "@ficusjs/cms-markdown-file-server",
+      "projectFolder": "packages/markdown-file-server",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@ficusjs/cms-markdown-to-json",
+      "projectFolder": "packages/markdown-to-json",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@ficusjs/cms-markdown-editor",
+      "projectFolder": "packages/markdown-editor",
+      "reviewCategory": "production"
+    }
+  ]
+}
